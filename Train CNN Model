@@ -1,0 +1,23 @@
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from keras.utils import to_categorical
+from sklearn.model_selection import train_test_split
+
+def build_cnn(input_shape, num_classes):
+    model = Sequential()
+    model.add(Conv2D(32, (3, 3), activation='relu', input_shape=input_shape))
+    model.add(MaxPooling2D((2, 2)))
+    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(MaxPooling2D((2, 2)))
+    model.add(Flatten())
+    model.add(Dense(128, activation='relu'))
+    model.add(Dense(num_classes, activation='softmax'))
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    return model
+
+def train_model(X, Y, epochs=10):
+    Y_cat = to_categorical(Y)
+    X_train, X_val, Y_train, Y_val = train_test_split(X, Y_cat, test_size=0.2, random_state=42)
+    model = build_cnn(X.shape[1:], Y_cat.shape[1])
+    model.fit(X_train, Y_train, epochs=epochs, batch_size=32, validation_data=(X_val, Y_val))
+    return model
