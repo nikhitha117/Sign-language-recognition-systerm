@@ -1,7 +1,4 @@
 # Sign-language-recognition-systerm
 Sign language recognition system using machine learning. 
-things present in the project are:
-1.CNN model training using Keras
-2.GUI built with tkinter
-3.Real-time webcam gesture prediction using OpenCV
-4.Voice output with gTTS and playsound
+        Communication is a fundamental human need. However, for people who are deaf or mute, expressing ideas using conventional spoken language can be challenging. Sign language provides an effective mode of communication, but it is not widely understood by the general population. This gap in understanding often leads to communication barriers and social exclusion. This project proposes a deep learning-based Sign Language Recognition System that identifies hand gestures and translates them into text and voice outputs, enabling real-time communication between hearing-impaired and non-sign language users. The system uses Convolutional Neural Networks (CNN) for gesture classification and Text-to-Speech (TTS) for voice output. The recognition is done using static hand gesture images based on the American Sign Language (ASL) alphabet. A custom dataset of 10 ASL gestures was created, with images captured under varying lighting conditions to improve model robustness. The system also integrates OpenCV for real-time hand gesture capture and Tkinter as a graphical interface for ease of use.
+        
